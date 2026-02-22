@@ -16,12 +16,14 @@
     <link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap" rel="stylesheet">
 
     <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
 
 
     <style>
-        *{
-             font-family: "Geist", sans-serif;
+        * {
+            font-family: "Geist", sans-serif;
         }
     </style>
 
@@ -49,7 +51,7 @@
     </header>
 
     <!-- available job section -->
-    <main class="w-10/12 2xl:w-9/12 mx-auto  ">
+    <main class="w-10/12 2xl:w-9/12 mx-auto pb-12">
         <!-- title & job count &tab section -->
         <section>
             <!-- title & job count -->
@@ -63,6 +65,61 @@
                 <button class="bg-[#3B82F6] text-[#FFFFFF] border py-2.5 px-8 rounded-sm">All</button>
                 <button class="bg-[#FFFFFF] border py-2.5 px-3.5 border-[#F1F2F4] rounded-sm">Interview</button>
                 <button class="bg-[#FFFFFF] border py-2.5 px-3.5 border-[#F1F2F4] rounded-sm">Rejected</button>
+            </div>
+        </section>
+
+        <!-- card section  -->
+        <section>
+            <!-- card 1 -->
+            <div class="border bg-[#FFFFFF] border-[#F1F2F4] p-6 rounded-lg mt-4 space-y-5">
+                <!-- card heading & delete btn container -->
+                <div class="flex justify-between">
+                    <!-- card title  -->
+                    <div>
+                        <h2 class="company-name text-lg font-semibold text-[#002C5C] mb-1">Mobile First Corp</h2>
+                        <p class="job-position text-[#64748B]">React Native Developer</p>
+                    </div>
+                    <!-- delete btn -->
+                    <div>
+                        <button class="delete-btn"><i class="fa-regular fa-trash-can text-[#64748B]"></i></button>
+                    </div>
+                </div>
+                <p class="type-slary text-[#64748B] text-sm">Remote • Full-time • $130,000 - $175,000</p>
+                <div>
+                    <p class="job-status text-[#002C5C] text-sm font-medium py-2 px-3 bg-[#EEF4FF] w-[114px] rounded-sm mb-2">NOT APPLIED</p>
+                    <p class="description text-sm text-[#323B49]">Build cross-platform mobile applications using React Native. Work on products used by millions of users worldwide.</p>
+                </div>
+                <!-- button -->
+                <div class="flex gap-2">
+                    <button class="interview-btn py-2 px-3 border rounded-sm text-[#10B981] text-sm font-semibold ">interview</button>
+                    <button class="interview-btn py-2 px-3 border rounded-sm text-[#EF4444] text-sm font-semibold ">Rejected</button>
+                </div>
+            </div>
+
+            <!-- card 2 -->
+            <div class="border bg-[#FFFFFF] border-[#F1F2F4] p-6 rounded-lg mt-4 space-y-5">
+                <!-- card heading & delete btn container -->
+                <div class="flex justify-between">
+                    <!-- card title  -->
+                    <div>
+                        <h2 class="company-name text-lg font-semibold text-[#002C5C] mb-1">WebFlow Agency</h2>
+                        <p class="job-position text-[#64748B]">Web Designer & Developer</p>
+                    </div>
+                    <!-- delete btn -->
+                    <div>
+                        <button class="delete-btn"><i class="fa-regular fa-trash-can text-[#64748B]"></i></button>
+                    </div>
+                </div>
+                <p class="type-slary text-[#64748B] text-sm">Los Angeles, CA • Part-time • $80,000 - $120,000</p>
+                <div>
+                    <p class="job-status text-[#002C5C] text-sm font-medium py-2 px-3 bg-[#EEF4FF] w-[114px] rounded-sm mb-2">NOT APPLIED</p>
+                    <p class="description text-sm text-[#323B49]">Create stunning web experiences for high-profile clients. Must have portfolio and experience with modern web design trends.</p>
+                </div>
+                <!-- button -->
+                <div class="flex gap-2">
+                    <button class="interview-btn py-2 px-3 border rounded-sm text-[#10B981] text-sm font-semibold ">interview</button>
+                    <button class="interview-btn py-2 px-3 border rounded-sm text-[#EF4444] text-sm font-semibold ">Rejected</button>
+                </div>
             </div>
         </section>
     </main>
