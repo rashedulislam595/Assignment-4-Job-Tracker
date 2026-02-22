@@ -9,3 +9,13 @@ function removeClass(selector){
 function addClass(selector){
     selector.classList.add("bg-[#FFFFFF]","text-[#64748B]","border","border-[#F1F2F4]")
 }
+
+// class list remove 
+function classRemove(selector){
+    selector.classList.remove("hidden");
+}
+
+// class list add 
+function classAdd(selector){
+    selector.classList.add("hidden");
+}
