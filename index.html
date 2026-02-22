@@ -27,8 +27,38 @@
 
 </head>
 
-<body>
-    
+<body class=" bg-[#F8FAFC] ">
+    <header class="w-10/12 2xl:w-9/12 mx-auto  pt-14">
+        <h2 class="text-[#002C5C] text-[28px] md:text-[32px] font-bold mb-5">Job Application Tracker</h2>
+        <!-- count section -->
+        <div class="flex gap-4 pb-[30px]">
+            <div class=" w-full p-5 rounded-lg bg-[#FFFFFF]">
+                <p class="text-[#323B49] font-medium text-sm">Total</p>
+                <h3 id="total-count" class="font-bold text-2xl text-[#002C5C] mt-2">0</h3>
+            </div>
+            <div class=" w-full p-5 rounded-lg bg-[#FFFFFF]">
+                <p class="text-[#323B49] font-medium text-sm">Interview</p>
+                <h3 id="interview-count" class="font-bold text-2xl text-[#10B981] mt-2">0</h3>
+            </div>
+            <div class=" w-full p-5 rounded-lg bg-[#FFFFFF] ">
+                <p class="text-[#323B49] font-medium text-sm">Rejected</p>
+                <h3 id="rejected-count" class="font-bold text-2xl text-[#EF4444] mt-2">0</h3>
+            </div>
+        </div>
+        <hr class="text-[#E6E7E9] pb-[30px]">
+    </header>
+
+    <!-- available job section -->
+    <main class="w-10/12 2xl:w-9/12 mx-auto  ">
+        <!-- title & job count &tab section -->
+        <section>
+            <!-- title & job count -->
+            <div class="flex justify-between pb-6">
+                <h2 class="text-[#002C5C] text-xl font-semibold ">Available Jobs</h2>
+                <p class="text-[#323B49] font-medium"><span id="available-job-count">0</span> jobs</p>
+            </div>
+        </section>
+    </main>
 </body>
 
 </html>
