@@ -62,14 +62,14 @@
 
             <!-- tab section -->
             <div class="flex gap-2">
-                <button class="bg-[#3B82F6] text-[#FFFFFF] border py-2.5 px-8 rounded-sm">All</button>
-                <button class="bg-[#FFFFFF] border py-2.5 px-3.5 border-[#F1F2F4] rounded-sm">Interview</button>
-                <button class="bg-[#FFFFFF] border py-2.5 px-3.5 border-[#F1F2F4] rounded-sm">Rejected</button>
+                <button onclick="togglingBtn('all-filter-btn')" id="all-filter-btn" class="bg-[#3B82F6] text-[#FFFFFF] border py-2.5 px-8 rounded-sm text-[12px] font-semibold">All</button>
+                <button onclick="togglingBtn('interview-filter-btn')" id="interview-filter-btn" class="bg-[#FFFFFF] border py-2.5 px-3.5 border-[#F1F2F4] rounded-sm text-[#64748B] text-[12px] font-medium">Interview</button>
+                <button onclick="togglingBtn('rejected-filter-btn')" id="rejected-filter-btn" class="bg-[#FFFFFF]  py-2.5 px-3.5 border border-[#F1F2F4] rounded-sm text-[12px] font-medium text-[#64748B]">Rejected</button>
             </div>
         </section>
 
         <!-- card section  -->
-        <section>
+        <section id="all-card-container">
             <!-- card 1 -->
             <div class="border bg-[#FFFFFF] border-[#F1F2F4] p-6 rounded-lg mt-4 space-y-5">
                 <!-- card heading & delete btn container -->
@@ -123,6 +123,9 @@
             </div>
         </section>
     </main>
+
+    <script src="js/machine.js"></script>
+    <script src="js/script.js"></script>
 </body>
 
 </html>
