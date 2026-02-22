@@ -1,7 +1,7 @@
 
 let interviewList = [];
 let rejectedList = [];
-
+let currentStatus = "all";
 
 // select all count element
 let totalCount = document.getElementById("total-count");
@@ -45,6 +45,8 @@ function togglingBtn(id) {
     addClass(rejectedFilterBtn);
 
     const selected = document.getElementById(id);
+    currentStatus = id ;
+
     // class remove
     selected.classList.remove("bg-[#FFFFFF]", "text-[#64748B]", "border", "border-[#F1F2F4]")
     selected.classList.add("bg-[#3B82F6]", "text-[#FFFFFF]", "border")
@@ -53,6 +55,7 @@ function togglingBtn(id) {
     if(id == "interview-filter-btn"){
         classAdd(allCardSection);
         classRemove(filterSection);
+        renderInterview()
     }
     else if(id == "all-filter-btn"){
         classAdd(filterSection);
@@ -61,6 +64,7 @@ function togglingBtn(id) {
     else if(id == "rejected-filter-btn"){
         classAdd(allCardSection);
         classRemove(filterSection);
+        renderRejected()
     }
 }
 
@@ -103,7 +107,11 @@ mainSection.addEventListener("click", function (event) {
 
         rejectedList = rejectedList.filter(item => item.companyName != jobCardInfo.companyName);
 
-        renderInterview()
+        if(currentStatus == "rejected-filter-btn"){
+            renderRejected()
+        }
+
+        
         calculateCount()
     }
     else if (event.target.classList.contains("rejected-btn")) {
@@ -141,10 +149,12 @@ mainSection.addEventListener("click", function (event) {
             rejectedList.push(jobCardInfo);
         }
 
-        // interviewList = interviewList.filter(item =>item.companyName != jobCardInfo.companyName);
         interviewList = interviewList.filter(item => item.companyName != jobCardInfo.companyName);
 
-        renderRejected();
+        if(currentStatus == "interview-filter-btn"){
+            renderInterview()
+        }
+
         calculateCount();
     }
 })
