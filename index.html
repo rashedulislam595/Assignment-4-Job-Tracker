@@ -32,15 +32,15 @@
         <h2 class="text-[#002C5C] text-[28px] md:text-[32px] font-bold mb-5">Job Application Tracker</h2>
         <!-- count section -->
         <div class="flex gap-4 pb-[30px]">
-            <div class=" w-full p-5 rounded-lg bg-[#FFFFFF]">
+            <div class=" w-full p-5 rounded-lg bg-[#FFFFFF] border border-[#F1F2F4]">
                 <p class="text-[#323B49] font-medium text-sm">Total</p>
                 <h3 id="total-count" class="font-bold text-2xl text-[#002C5C] mt-2">0</h3>
             </div>
-            <div class=" w-full p-5 rounded-lg bg-[#FFFFFF]">
+            <div class=" w-full p-5 rounded-lg bg-[#FFFFFF] border border-[#F1F2F4]">
                 <p class="text-[#323B49] font-medium text-sm">Interview</p>
                 <h3 id="interview-count" class="font-bold text-2xl text-[#10B981] mt-2">0</h3>
             </div>
-            <div class=" w-full p-5 rounded-lg bg-[#FFFFFF] ">
+            <div class=" w-full p-5 rounded-lg bg-[#FFFFFF] border border-[#F1F2F4] ">
                 <p class="text-[#323B49] font-medium text-sm">Rejected</p>
                 <h3 id="rejected-count" class="font-bold text-2xl text-[#EF4444] mt-2">0</h3>
             </div>
@@ -56,6 +56,13 @@
             <div class="flex justify-between pb-6">
                 <h2 class="text-[#002C5C] text-xl font-semibold ">Available Jobs</h2>
                 <p class="text-[#323B49] font-medium"><span id="available-job-count">0</span> jobs</p>
+            </div>
+
+            <!-- tab section -->
+            <div class="flex gap-2">
+                <button class="bg-[#3B82F6] text-[#FFFFFF] border py-2.5 px-8 rounded-sm">All</button>
+                <button class="bg-[#FFFFFF] border py-2.5 px-3.5 border-[#F1F2F4] rounded-sm">Interview</button>
+                <button class="bg-[#FFFFFF] border py-2.5 px-3.5 border-[#F1F2F4] rounded-sm">Rejected</button>
             </div>
         </section>
     </main>
