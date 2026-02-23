@@ -63,7 +63,7 @@ function togglingBtn(id) {
     if (id == "interview-filter-btn") {
         classAdd(allCardSection);
         classRemove(filterSection);
-        renderInterview();
+
         // hide available rejected count
         classAdd(rejected);
 
@@ -77,7 +77,7 @@ function togglingBtn(id) {
             classRemove(interview);
             availableJobCount.innerText = totalCard;
         }
-
+        renderInterview();
 
 
     }
@@ -94,7 +94,7 @@ function togglingBtn(id) {
     else if (id == "rejected-filter-btn") {
         classAdd(allCardSection);
         classRemove(filterSection);
-        renderRejected()
+
         classAdd(interview)
 
         // available job count logic
@@ -106,7 +106,7 @@ function togglingBtn(id) {
             classRemove(rejected);
             availableJobCount.innerText = totalCard;
         }
-
+        renderRejected()
 
     }
 }
@@ -206,24 +206,44 @@ mainSection.addEventListener("click", function (event) {
         // remove korar por avalable interview count hide  
         if (interviewList.length == 0) {
             classAdd(interview);
-            availableJobCount.innerText =rejectedCount;
+            availableJobCount.innerText = rejectedCount;
         }
-        
+
         calculateCount();
     }
-    // console.log(event.target.parentNode.classList.contains("delete-btn"))
+    
     else if (event.target.parentNode.classList.contains("delete-btn")) {
         const parent = event.target.parentNode.parentNode.parentNode.parentNode;
         parent.remove()
         // totalCount.innerText -= 1; 
+
+        filterSection.innerHTML = `
+        <div class="mt-4 text-center py-[60px] px-10">
+            <img class="mx-auto" src="./assets/jobs.png" alt="">
+            <h2 class="mt-5 mb-1 text-2xl font-semibold text-[#002C5C]">No jobs available</h2>
+            <p class="text-[#64748B]">Check back soon for new job opportunities</p>
+        </div>
+    `;
+
+        // const allCardContainer = allCardSection.appendChild(filterSection);
+
+        // // console.log(allCardContainer.classList.remove('hidden'))
+
         calculateCount()
     }
 })
 
 function renderInterview() {
-    filterSection.innerHTML = "";
+    filterSection.innerHTML = `
+        <div class="mt-4 text-center py-[60px] px-10">
+            <img class="mx-auto" src="./assets/jobs.png" alt="">
+            <h2 class="mt-5 mb-1 text-2xl font-semibold text-[#002C5C]">No jobs available</h2>
+            <p class="text-[#64748B]">Check back soon for new job opportunities</p>
+        </div>
+    `;
 
     for (let interview of interviewList) {
+        filterSection.innerHTML = "";
         let div = document.createElement("div");
         div.className = "card border bg-[#FFFFFF] border-[#F1F2F4] p-6 rounded-lg mt-4 space-y-5";
 
@@ -256,9 +276,16 @@ function renderInterview() {
 }
 
 function renderRejected() {
-    filterSection.innerHTML = "";
+    filterSection.innerHTML = `
+        <div class="mt-4 text-center py-[60px] px-10">
+            <img class="mx-auto" src="./assets/jobs.png" alt="">
+            <h2 class="mt-5 mb-1 text-2xl font-semibold text-[#002C5C]">No jobs available</h2>
+            <p class="text-[#64748B]">Check back soon for new job opportunities</p>
+        </div>
+    `;
 
     for (let rejected of rejectedList) {
+        filterSection.innerHTML = "";
         let div = document.createElement("div");
         div.className = "card border bg-[#FFFFFF] border-[#F1F2F4] p-6 rounded-lg mt-4 space-y-5";
 
