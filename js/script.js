@@ -93,7 +93,7 @@ function togglingBtn(id) {
 
 
     }
-    else if (id == "rejected-filter-btn") {
+    else if (id == "rejected-filter-btn"){
         classAdd(allCardSection);
         classRemove(filterSection);
 
@@ -161,8 +161,8 @@ mainSection.addEventListener("click", function (event) {
             classAdd(rejected)
             availableJobCount.innerText = 0;
         }
-        // interviewList.length += 1;
-        // renderInterview()
+        
+        
         calculateCount()
     }
     else if (event.target.classList.contains("rejected-btn")) {
@@ -209,7 +209,7 @@ mainSection.addEventListener("click", function (event) {
         // remove korar por avalable interview count hide  
         if (interviewList.length == 0) {
             classAdd(interview);
-            availableJobCount.innerText = rejectedCount;
+            availableJobCount.innerText = 0;
         }
 
         calculateCount();
@@ -218,16 +218,6 @@ mainSection.addEventListener("click", function (event) {
     else if (event.target.parentNode.classList.contains("delete-btn")) {
         const parent = event.target.parentNode.parentNode.parentNode.parentNode;
         parent.remove()
-        // totalCount.innerText -= 1; 
-
-        filterSection.innerHTML = `
-        <div class="mt-4 text-center py-[60px] px-10">
-            <img class="mx-auto" src="./assets/jobs.png" alt="">
-            <h2 class="mt-5 mb-1 text-2xl font-semibold text-[#002C5C]">No jobs available</h2>
-            <p class="text-[#64748B]">Check back soon for new job opportunities</p>
-        </div>
-    `;
-
 
     }
     calculateCount()
@@ -248,7 +238,7 @@ function renderInterview() {
         filterSection.innerHTML = "";
         for (let interview of interviewList) {
             let div = document.createElement("div");
-            div.className = "card border bg-[#FFFFFF] border-[#F1F2F4] p-6 rounded-lg mt-4 space-y-5";
+            div.className = "card hover:shadow-2xl hover:border-l-[#10B981] border bg-[#FFFFFF] border-[#F1F2F4] p-6 rounded-lg mt-4 space-y-5";
 
             div.innerHTML = `
         <!-- card heading & delete btn container -->
@@ -265,13 +255,13 @@ function renderInterview() {
                 </div>
                 <p class="type-salary text-[#64748B] text-sm">${interview.typeSalary}</p>
                 <div>
-                    <p class="job-status text-[#FFFFFF] text-sm font-medium py-2 px-3 bg-[#10B981] w-[114px] rounded-sm mb-2">${interview.jobStatus}</p>
+                    <p class="job-status text-[#FFFFFF] text-sm font-medium py-2 px-3 bg-[#10B981] w-[114px] rounded-sm mb-2 ">${interview.jobStatus}</p>
                     <p class="description text-sm text-[#323B49]">${interview.description}</p>
                 </div>
                 <!-- button -->
                 <div class="flex gap-2">
-                    <button class="interview-btn py-2 px-3 border rounded-sm text-[#10B981] text-sm font-semibold ">INTERVIEW</button>
-                    <button class="rejected-btn py-2 px-3 border rounded-sm text-[#EF4444] text-sm font-semibold ">REJECTED</button>
+                    <button class="interview-btn py-2 px-3 border rounded-sm text-[#10B981] text-sm font-semibold  hover:bg-[#10B981] hover:text-white ">INTERVIEW</button>
+                    <button class="rejected-btn py-2 px-3 border rounded-sm text-[#EF4444] text-sm font-semibold  hover:bg-[#EF4444] hover:text-white ">REJECTED</button>
                 </div>
         `
             filterSection.appendChild(div)
@@ -294,7 +284,7 @@ function renderRejected() {
         filterSection.innerHTML = "";
         for (let rejected of rejectedList) {
             let div = document.createElement("div");
-            div.className = "card border bg-[#FFFFFF] border-[#F1F2F4] p-6 rounded-lg mt-4 space-y-5";
+            div.className = "card hover:shadow-2xl hover:border-l-[#EF4444] border bg-[#FFFFFF] border-[#F1F2F4] p-6 rounded-lg mt-4 space-y-5";
 
             div.innerHTML = `
         <!-- card heading & delete btn container -->
@@ -316,8 +306,8 @@ function renderRejected() {
                 </div>
                 <!-- button -->
                 <div class="flex gap-2">
-                    <button class="interview-btn py-2 px-3 border rounded-sm text-[#10B981] text-sm font-semibold ">INTERVIEW</button>
-                    <button class="rejected-btn py-2 px-3 border rounded-sm text-[#EF4444] text-sm font-semibold ">REJECTED</button>
+                    <button class="interview-btn py-2 px-3 border rounded-sm text-[#10B981] text-sm font-semibold  hover:bg-[#10B981] hover:text-white ">INTERVIEW</button>
+                    <button class="rejected-btn py-2 px-3 border rounded-sm text-[#EF4444] text-sm font-semibold  hover:bg-[#EF4444] hover:text-white">REJECTED</button>
                 </div>
         `
             filterSection.appendChild(div)
@@ -328,7 +318,7 @@ function renderRejected() {
 
 function selectElementRemove() {
     document.addEventListener("click", function (event) {
-        // event.target.parentNode.classList.contains("delete-btn")
+        
         if (event.target.parentNode.classList.contains("delete")) {
             const parent = event.target.parentNode.parentNode.parentNode.parentNode;
             parent.remove()
