@@ -57,7 +57,11 @@
             <!-- title & job count -->
             <div class="flex justify-between pb-6">
                 <h2 class="text-[#002C5C] text-xl font-semibold ">Available Jobs</h2>
-                <p class="text-[#323B49] font-medium"><span id="available-job-count">0</span> jobs</p>
+                <div id="avaiable-count" class=" flex gap-1">
+                    <p id="rejected" class="text-[#323B49] font-medium hidden"><span id="available-reject-count">0</span> of</p>
+                    <p id="interview" class="text-[#323B49] font-medium hidden"><span id="available-interview-count">0</span> of</p>
+                    <p class="text-[#323B49] font-medium"><span id="available-job-count">0</span> jobs</p>
+                </div>
             </div>
 
             <!-- tab section -->

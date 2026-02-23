@@ -7,7 +7,11 @@ let currentStatus = "all";
 let totalCount = document.getElementById("total-count");
 let interviewCount = document.getElementById("interview-count");
 let rejectedCount = document.getElementById("rejected-count");
+let interview = document.getElementById("interview")
+let rejected = document.getElementById("rejected");
 let availableJobCount = document.getElementById("available-job-count");
+let availableRejectCount = document.getElementById("available-reject-count");
+let availableInterviewCount = document.getElementById("available-interview-count");
 
 // section select
 const allCardSection = document.getElementById("all-card-container");
@@ -29,6 +33,10 @@ function calculateCount() {
     availableJobCount.innerText = totalCard;
     interviewCount.innerText = interviewList.length;
     rejectedCount.innerText = rejectedList.length;
+
+
+    availableRejectCount.innerText = rejectedList.length;
+    availableInterviewCount.innerText = interviewList.length;
 }
 calculateCount()
 
@@ -45,26 +53,61 @@ function togglingBtn(id) {
     addClass(rejectedFilterBtn);
 
     const selected = document.getElementById(id);
-    currentStatus = id ;
+    currentStatus = id;
 
     // class remove
     selected.classList.remove("bg-[#FFFFFF]", "text-[#64748B]", "border", "border-[#F1F2F4]")
     selected.classList.add("bg-[#3B82F6]", "text-[#FFFFFF]", "border")
 
 
-    if(id == "interview-filter-btn"){
+    if (id == "interview-filter-btn") {
         classAdd(allCardSection);
         classRemove(filterSection);
-        renderInterview()
+        renderInterview();
+        // hide available rejected count
+        classAdd(rejected);
+
+        // show available interview count
+        if (interviewList.length == 0) {
+            classAdd(interview);
+            availableJobCount.innerText = 0;
+        }
+
+        else {
+            classRemove(interview);
+            availableJobCount.innerText = totalCard;
+        }
+
+
+
     }
-    else if(id == "all-filter-btn"){
+    else if (id == "all-filter-btn") {
         classAdd(filterSection);
-        classRemove(allCardSection)
+        classRemove(allCardSection);
+
+        classAdd(rejected);
+        classAdd(interview);
+        availableJobCount.innerText = totalCard;
+
+
     }
-    else if(id == "rejected-filter-btn"){
+    else if (id == "rejected-filter-btn") {
         classAdd(allCardSection);
         classRemove(filterSection);
         renderRejected()
+        classAdd(interview)
+
+        // available job count logic
+        if (rejectedList.length === 0) {
+            classAdd(rejected)
+            availableJobCount.innerText = 0;
+        }
+        else {
+            classRemove(rejected);
+            availableJobCount.innerText = totalCard;
+        }
+
+
     }
 }
 
@@ -83,9 +126,9 @@ mainSection.addEventListener("click", function (event) {
         // set status
         const status = parent.querySelector(".job-status");
 
-        status.innerText = "INTERVIEW"; 
+        status.innerText = "INTERVIEW";
         const jobStatus = status.innerText;
-        
+
         status.className = "job-status text-[#FFFFFF] text-sm font-medium py-2 px-3 bg-[#10B981] w-[114px] rounded-sm mb-2"
 
 
@@ -107,11 +150,16 @@ mainSection.addEventListener("click", function (event) {
 
         rejectedList = rejectedList.filter(item => item.companyName != jobCardInfo.companyName);
 
-        if(currentStatus == "rejected-filter-btn"){
+        if (currentStatus == "rejected-filter-btn") {
             renderRejected()
         }
 
-        
+        if (rejectedList.length === 0) {
+            classAdd(rejected)
+            availableJobCount.innerText = 0;
+        }
+
+
         calculateCount()
     }
     else if (event.target.classList.contains("rejected-btn")) {
@@ -127,9 +175,9 @@ mainSection.addEventListener("click", function (event) {
         // set status
         const status = parent.querySelector(".job-status");
 
-        status.innerText = "REJECTED"; 
+        status.innerText = "REJECTED";
         const jobStatus = status.innerText;
-        
+
         status.className = "job-status text-[#FFFFFF] text-sm font-medium py-2 px-3 bg-[#EF4444] w-[114px] rounded-sm mb-2"
 
 
@@ -151,11 +199,24 @@ mainSection.addEventListener("click", function (event) {
 
         interviewList = interviewList.filter(item => item.companyName != jobCardInfo.companyName);
 
-        if(currentStatus == "interview-filter-btn"){
+
+        if (currentStatus == "interview-filter-btn") {
             renderInterview()
         }
-
+        // remove korar por avalable interview count hide  
+        if (interviewList.length == 0) {
+            classAdd(interview);
+            availableJobCount.innerText =rejectedCount;
+        }
+        
         calculateCount();
+    }
+    // console.log(event.target.parentNode.classList.contains("delete-btn"))
+    else if (event.target.parentNode.classList.contains("delete-btn")) {
+        const parent = event.target.parentNode.parentNode.parentNode.parentNode;
+        parent.remove()
+        // totalCount.innerText -= 1; 
+        calculateCount()
     }
 })
 
