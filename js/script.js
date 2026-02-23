@@ -29,15 +29,17 @@ const rejectedFilterBtn = document.getElementById("rejected-filter-btn");
 
 // count function
 function calculateCount() {
-    totalCount.innerText = totalCard;
-    availableJobCount.innerText = totalCard;
+    totalCount.innerText = allCardSection.children.length;
+    availableJobCount.innerText = allCardSection.children.length;
     interviewCount.innerText = interviewList.length;
     rejectedCount.innerText = rejectedList.length;
 
 
     availableRejectCount.innerText = rejectedList.length;
     availableInterviewCount.innerText = interviewList.length;
+
 }
+
 calculateCount()
 
 // tab toggling
@@ -123,6 +125,7 @@ mainSection.addEventListener("click", function (event) {
         // const jobStatus = parent.querySelector(".job-status").innerText;
         const description = parent.querySelector(".description").innerText;
 
+
         // set status
         const status = parent.querySelector(".job-status");
 
@@ -158,8 +161,8 @@ mainSection.addEventListener("click", function (event) {
             classAdd(rejected)
             availableJobCount.innerText = 0;
         }
-
-
+        // interviewList.length += 1;
+        // renderInterview()
         calculateCount()
     }
     else if (event.target.classList.contains("rejected-btn")) {
@@ -211,7 +214,7 @@ mainSection.addEventListener("click", function (event) {
 
         calculateCount();
     }
-    
+
     else if (event.target.parentNode.classList.contains("delete-btn")) {
         const parent = event.target.parentNode.parentNode.parentNode.parentNode;
         parent.remove()
@@ -225,29 +228,29 @@ mainSection.addEventListener("click", function (event) {
         </div>
     `;
 
-        // const allCardContainer = allCardSection.appendChild(filterSection);
 
-        // // console.log(allCardContainer.classList.remove('hidden'))
-
-        calculateCount()
     }
+    calculateCount()
 })
 
 function renderInterview() {
-    filterSection.innerHTML = `
+    if (interviewList.length == 0) {
+        filterSection.innerHTML = `
         <div class="mt-4 text-center py-[60px] px-10">
             <img class="mx-auto" src="./assets/jobs.png" alt="">
             <h2 class="mt-5 mb-1 text-2xl font-semibold text-[#002C5C]">No jobs available</h2>
             <p class="text-[#64748B]">Check back soon for new job opportunities</p>
         </div>
     `;
+    }
 
-    for (let interview of interviewList) {
+    else {
         filterSection.innerHTML = "";
-        let div = document.createElement("div");
-        div.className = "card border bg-[#FFFFFF] border-[#F1F2F4] p-6 rounded-lg mt-4 space-y-5";
+        for (let interview of interviewList) {
+            let div = document.createElement("div");
+            div.className = "card border bg-[#FFFFFF] border-[#F1F2F4] p-6 rounded-lg mt-4 space-y-5";
 
-        div.innerHTML = `
+            div.innerHTML = `
         <!-- card heading & delete btn container -->
                 <div class="flex justify-between">
                     <!-- card title  -->
@@ -257,7 +260,7 @@ function renderInterview() {
                     </div>
                     <!-- delete btn -->
                     <div>
-                        <button class="delete-btn"><i class="fa-regular fa-trash-can text-[#64748B]"></i></button>
+                        <button onclick="selectElementRemove()" class="delete"><i class="fa-regular fa-trash-can text-[#64748B]"></i></button>
                     </div>
                 </div>
                 <p class="type-salary text-[#64748B] text-sm">${interview.typeSalary}</p>
@@ -271,25 +274,29 @@ function renderInterview() {
                     <button class="rejected-btn py-2 px-3 border rounded-sm text-[#EF4444] text-sm font-semibold ">REJECTED</button>
                 </div>
         `
-        filterSection.appendChild(div)
+            filterSection.appendChild(div)
+        }
     }
 }
 
 function renderRejected() {
-    filterSection.innerHTML = `
+    if (rejectedList.length == 0) {
+        filterSection.innerHTML = `
         <div class="mt-4 text-center py-[60px] px-10">
             <img class="mx-auto" src="./assets/jobs.png" alt="">
             <h2 class="mt-5 mb-1 text-2xl font-semibold text-[#002C5C]">No jobs available</h2>
             <p class="text-[#64748B]">Check back soon for new job opportunities</p>
         </div>
     `;
+    }
 
-    for (let rejected of rejectedList) {
+    else {
         filterSection.innerHTML = "";
-        let div = document.createElement("div");
-        div.className = "card border bg-[#FFFFFF] border-[#F1F2F4] p-6 rounded-lg mt-4 space-y-5";
+        for (let rejected of rejectedList) {
+            let div = document.createElement("div");
+            div.className = "card border bg-[#FFFFFF] border-[#F1F2F4] p-6 rounded-lg mt-4 space-y-5";
 
-        div.innerHTML = `
+            div.innerHTML = `
         <!-- card heading & delete btn container -->
                 <div class="flex justify-between">
                     <!-- card title  -->
@@ -299,7 +306,7 @@ function renderRejected() {
                     </div>
                     <!-- delete btn -->
                     <div>
-                        <button class="delete-btn"><i class="fa-regular fa-trash-can text-[#64748B]"></i></button>
+                        <button onclick="selectElementRemove()" class="delete"><i class="fa-regular fa-trash-can text-[#64748B]"></i></button>
                     </div>
                 </div>
                 <p class="type-salary text-[#64748B] text-sm">${rejected.typeSalary}</p>
@@ -313,6 +320,20 @@ function renderRejected() {
                     <button class="rejected-btn py-2 px-3 border rounded-sm text-[#EF4444] text-sm font-semibold ">REJECTED</button>
                 </div>
         `
-        filterSection.appendChild(div)
+            filterSection.appendChild(div)
+        }
     }
+
+}
+
+function selectElementRemove() {
+    document.addEventListener("click", function (event) {
+        // event.target.parentNode.classList.contains("delete-btn")
+        if (event.target.parentNode.classList.contains("delete")) {
+            const parent = event.target.parentNode.parentNode.parentNode.parentNode;
+            parent.remove()
+
+        }
+
+    })
 }
