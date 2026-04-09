@@ -1,60 +1,82 @@
-1. What is the difference between getElementById, getElementsByClassName, and querySelector / querySelectorAll?
+# 📋 Job Application Tracker
 
-Ans: Below is the difference between getElementById, getElementsByClassName, and querySelector / querySelectorAll--
-    ** getElementById : getElementById is used to select a specific Element. It basically finds the Element by Id and returns only one Element.
-    for example--> document.getElementById("idName")
+A clean, responsive **Job Application Tracker** web app that helps job seekers manage and monitor their job applications in one place. Users can track application statuses — marking jobs as **Interview** or **Rejected** — and get a real-time summary dashboard of their progress.
 
-    ** getElementByClassName : When a program needs to select multiple Elements/Items, getElementByClassName is used. It basically returns multiple Elements if they are of the same class and returns HtmlCollection. (Array like Object)
-    for example--> document.getElementByClassName("className")
+---
+![alt text](image.png)
+![alt text](image-1.png)
 
-    ** querySelector : It uses a CSS selector to select an element (e.g. #idName for id, .class for class) and it only returns the first matching element.
-    for example--> document.querySelector("#idName") / document.querySelector(".className")
+## 🌐 Live Link
 
-    ** querySelectorAll : It uses a CSS selector to select an element (e.g. #idName for id, .class for class) and returns all matching elements as a NodeList.
-    for example--> document.querySelectorAll("#idName") / document.querySelectorAll(".className")
+🔗 [View Live Project](https://rashedulislam595.github.io/Assignment-4-Job-Tracker/)
 
-2. How do you create and insert a new element into the DOM?
+📁 [GitHub Repository](https://github.com/rashedulislam595/Assignment-4-Job-Tracker/settings/pages)
 
-Ans: To create a new element, you first need to select where to place it. If you place it in the body, there is no need to select it separately.
+---
 
-    ** Adding an element to a specific "div" in the body is shown - which has <div id="parent"></div> in the html.
-    const parent = document.getElementById("parent");
+## 🛠️ Main Technology Used
 
-    ** create new Element
-    const newElement = document.createElement("p");
+- **HTML5** — Markup and page structure
+- **CSS3** — Styling and responsive layout
+- **TailwindCSs** — Utility-first CSS framework for styling and responsive layouts 
+- **JavaScript (Vanilla JS)** — Application logic, DOM manipulation, and interactivity
 
-    ** content add new element
-    newElement.innerText = "it's new Element , create by dom "
+---
 
-    ** add to Dom
-    parent.appendChild(newElement); 
+## ✨ Main Features
 
-
-3. What is Event Bubbling? And how does it work?
-
-Ans : Event Bubbling means that the event starts rising from the bottom to the top parent, it is called Event Bubbling.
-
-Let's say in html -
-    <!-- <div><button>Click</button> -->
-
-    Now if we create event bubbling on the button, it will first rise up button-> then div -> then body -> like this.
+- 📊 **Dashboard Summary** — Displays real-time counts of Total, Interview, and Rejected applications
+- 🗂️ **Tabbed Filtering** — Switch between All, Interview, and Rejected tabs to filter job cards
+- ✅ **Interview / Rejected Actions** — Mark any job as Interview or Rejected with a single click
+- 🗑️ **Delete Jobs** — Remove a job card from the UI; counts update instantly
+- 📱 **Responsive Design** — Mobile-friendly layout that works across all screen sizes
+- 🔄 **Dynamic Counter Updates** — Dashboard stats update in real time as statuses change
 
 
-4. What is Event Delegation in JavaScript? Why is it useful?
+---
 
-Ans : Event Delegation means placing an event listener on the parent element, not on the child. It takes up less memory, works on dynamic elements, and keeps the code clean.
+## 🚀 How to Run Locally
 
-for Example -> document.querySelector("ul").addEventListener("click",function(e){
-    if(e.target.tagName == "LI"){
-        console.log("List item Clicked");
-    }
-})
+Follow these steps to run the project on your local machine:
 
+### 1. Clone the Repository
 
-5. What is the difference between preventDefault() and stopPropagation() methods?
+```bash
+git clone https://github.com/rashedulislam595/Assignment-4-Job-Tracker.git
+```
 
-Ans : Below is the difference between preventDefault() and stopPropagation() methods
+### 2. Navigate into the Project Folder
 
-    ** preventDefault() --> This disables the default actions of the browser. For example: disabling from submit.for example -> event.preventDefault()
+```bash
+cd Assignment-4-Job-Tracker
+```
 
-    ** stopPropagation()-->This stops event bubbling. That is, the event will not go to the parent Element. for example -> event.stopPropagation()
+### 3. Open in Browser
+
+Since this is a pure HTML/CSS/JS project, simply open the `index.html` file in your browser:
+
+- **Option A:** Double-click the `index.html` file in your file explorer
+- **Option B:** Right-click `index.html` → *Open with* → your preferred browser
+- **Option C:** Use the VS Code **Live Server** extension for a better dev experience:
+  1. Install [Live Server](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer) in VS Code
+  2. Right-click `index.html` → **Open with Live Server**
+
+> ✅ No installation, no terminal commands, no build steps needed!
+
+---
+
+## 📁 Project Structure
+
+```
+Assignment-4-Job-Tracker/
+├── index.html       # Main HTML file
+├── style.css        # Stylesheet
+└── script.js        # JavaScript logic
+```
+
+---
+
+## 👤 Author
+
+**Rashedul Islam**
+- GitHub: [@rashedulislam595](https://github.com/rashedulislam595)
