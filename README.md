@@ -3,14 +3,14 @@
 A clean, responsive **Job Application Tracker** web app that helps job seekers manage and monitor their job applications in one place. Users can track application statuses — marking jobs as **Interview** or **Rejected** — and get a real-time summary dashboard of their progress.
 
 ---
-![alt text](image.png)
-![alt text](image-1.png)
+![All Job Photo](image.png)
+![Rejected Photo](image-1.png)
 
 ## 🌐 Live Link
 
 🔗 [View Live Project](https://rashedulislam595.github.io/Assignment-4-Job-Tracker/)
 
-📁 [GitHub Repository](https://github.com/rashedulislam595/Assignment-4-Job-Tracker/settings/pages)
+📁 [GitHub Repository](https://github.com/rashedulislam595/Assignment-4-Job-Tracker?tab=readme-ov-file)
 
 ---
 
